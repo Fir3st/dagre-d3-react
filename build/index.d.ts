@@ -7,6 +7,7 @@ interface GraphProps {
     fitBoundaries?: boolean;
     height?: string;
     width?: string;
+    multigraph?: boolean;
     config?: GraphLabel;
     animate?: number;
     className?: string;
@@ -28,6 +29,7 @@ declare type d3Link = {
     target: string;
     class?: string;
     label?: string;
+    name?: string;
     config?: object;
 };
 declare class DagreGraph extends Component<GraphProps> {

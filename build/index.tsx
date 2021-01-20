@@ -34202,8 +34202,8 @@ var DagreGraph = /** @class */ (function (_super) {
         _this.svg = React.createRef();
         _this.innerG = React.createRef();
         _this._drawChart = function () {
-            var _a = _this.props, nodes = _a.nodes, links = _a.links, zoomable = _a.zoomable, fitBoundaries = _a.fitBoundaries, config = _a.config, animate = _a.animate, shape = _a.shape, onNodeClick = _a.onNodeClick, onRelationshipClick = _a.onRelationshipClick;
-            var g = new dagreD3.graphlib.Graph().setGraph(config || {});
+            var _a = _this.props, nodes = _a.nodes, links = _a.links, zoomable = _a.zoomable, fitBoundaries = _a.fitBoundaries, multigraph = _a.multigraph, config = _a.config, animate = _a.animate, shape = _a.shape, onNodeClick = _a.onNodeClick, onRelationshipClick = _a.onRelationshipClick;
+            var g = new dagreD3.graphlib.Graph({ multigraph: multigraph }).setGraph(config || {});
             nodes.forEach(function (node) {
                 return g.setNode(node.id, __assign({ label: node.label, class: node.class || '', labelType: node.labelType || 'string' }, node.config));
             });
@@ -34211,7 +34211,7 @@ var DagreGraph = /** @class */ (function (_super) {
                 g.nodes().forEach(function (v) { return (g.node(v).shape = shape); });
             }
             links.forEach(function (link) {
-                return g.setEdge(link.source, link.target, __assign({ label: link.label || '', class: link.class || '' }, link.config));
+                return g.setEdge(link.source, link.target, __assign({ label: link.label || '', class: link.class || '' }, link.config), link.name);
             });
             var render = new dagreD3.render();
             var svg = select$1(_this.svg.current);
@@ -34254,7 +34254,7 @@ var DagreGraph = /** @class */ (function (_super) {
                 });
             }
             if (onRelationshipClick) {
-                svg.selectAll('g.edgeLabel').on('click', function (id) {
+                svg.selectAll('g.edgeLabel, g.edgePath').on('click', function (id) {
                     var _source = g.node(id.v);
                     var _original_source = _this._getNodeData(id.v);
                     var _target = g.node(id.w);

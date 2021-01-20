@@ -6,7 +6,7 @@
 	"types": "build/index.d.ts",
 	"module": "build/index.es.js",
 	"jsnext:main": "build/index.es.js",
-	"homepage": "https://github.com/justin-coberly/dagre-d3-react",
+	"homepage": "https://github.com/fir3st/dagre-d3-react",
 	"files": [
 		"build"
 	],
@@ -27,11 +27,11 @@
 		"neo4j",
 		"renderer"
 	],
-	"author": "Justin Coberly",
+	"author": "Vladimír Fojtík",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/justin-coberly/dagre-d3-react"
+		"url": "https://github.com/fir3st/dagre-d3-react"
 	},
 	"devDependencies": {
 		"@types/d3": "^5.7.2",
