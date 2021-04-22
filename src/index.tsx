@@ -1,8 +1,8 @@
-import React, { Component, createRef } from 'react'
+import React, { Component, createRef, ComponentPropsWithRef } from 'react'
 import dagreD3, { GraphLabel } from 'dagre-d3'
 import * as d3 from 'd3'
 
-interface GraphProps {
+interface GraphProps extends ComponentPropsWithRef<any> {
 	nodes: d3Node[]
 	links: d3Link[]
 	zoomable?: boolean
